@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity(), Contract.View {
     private lateinit var totalAmount: TextView
     private lateinit var seekBar: SeekBar
     private lateinit var presenter: Presenter
+    private lateinit var tipPercentReview: TextView
     private var _progress: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity(), Contract.View {
         totalAmount = binding.tvTotalAmount
         seekBar = binding.seekBar
         amount = binding.etAmount
+        tipPercentReview = binding.tvTipPercentReview
         tipPercentLabel.text = _progress.toString().plus("%")
         presenter = Presenter(this)
 
@@ -43,6 +45,12 @@ class MainActivity : AppCompatActivity(), Contract.View {
                             progress
                         )
                     }
+                }
+                binding.tvTipPercentReview.text = when (progress) {
+                    in 0..5 -> "Poor"
+                    in 6..15 -> "Good"
+                    in 16..25 -> "Best"
+                    else -> "Amazing"
                 }
             }
 
