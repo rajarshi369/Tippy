@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Tippy</string>
+    <string name="billAmount">Amount</string>
+    <string name="Tip">Tip</string>
+    <string name="totalBill">Total bill</string>
+    <string name="billAmountHint">Enter bill amount</string>
+</resources>
